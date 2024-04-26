@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import {  Partner } from '../Models/Partner';
 import { BankAccount } from '../Models/BankAccount';
+import { Promotion } from '../Models/Promotion';
 
 
 @Injectable({
@@ -25,7 +26,7 @@ export class PartnerService {
     return this.http.get<any[]>(this.url+'partner')
   }
 
-  // Get User by Id - Read
+  
   getPartnerById(partnerid: number): Observable<Partner>{
     return this.http.get<Partner>(`${this.url}partner/${partnerid}`)
   }
@@ -43,6 +44,9 @@ export class PartnerService {
   // Obtenir une liste de comptes bancaires disponibles
   getAvailableBankAccounts(): Observable<BankAccount[]> {
     return this.http.get<BankAccount[]>(`${this.url}compte/available`);
+  }
+  addPromotion(partnerid: number, promotion: Promotion): Observable<Promotion> {
+    return this.http.post<Promotion>(`${this.url}promo/${partnerid}`, promotion);
   }
 
 }

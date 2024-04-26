@@ -44,6 +44,7 @@
                     <th scope="col">chiffredaffaires</th>
                     <th scope="col">chargesfixes</th>
                     <th scope="col">compte bancaire</th>
+                    <th scope="col">les publicités</th>
 
                   </tr>
                 </thead>
@@ -65,6 +66,14 @@
                           N'est pas affecté
                       </ng-template>
                   </td>
+                  <td>
+                    <ng-container *ngIf="partner.advertising; else notAffectedd">
+                         pub: {{ partner.advertising.titre}}
+                     </ng-container>
+                     <ng-template #notAffectedd>
+                         N'a pas des publicité
+                     </ng-template>
+                 </td>
                    
                     <td>
                         <div class="d-inline mx-2">

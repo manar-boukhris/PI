@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="card mt-5">
+      <h5 class="card-header">Consultation Partner {{ partner?.partnerid }}</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{ partner?.name }}</h5>
+        <p class="card-text">{{ partner?.domain }}</p>
+        <p class="card-text">Nombre de transactions: {{ partner?.nbtransaction }}</p>
+        <p class="card-text" *ngIf="partner?.bankAccount">Compte : {{ partner?.bankAccount.rib }}</p>
+        <p class="card-text" *ngIf="!partner?.bankAccount">Affecté à: Aucun compte assigné</p>
+        <p class="card-text" *ngIf="partner?.advertising">Publicité: {{ partner?.advertising.titre }}</p>
+        <p class="card-text" *ngIf="!partner?.advertising">Publicité: Aucune</p>
+        
+        <h5 class="mt-5">Promotions</h5>
+        <div class="list-group">
+          <a *ngFor="let promotion of partner?.promotions" class="list-group-item">
+            <h6 class="mb-1">{{ promotion.descrption }}</h6>
+            <small>{{ promotion.promo }}</small>
+          </a>
+          <div *ngIf="!partner?.promotions" class="list-group-item">Aucune promotion</div>
+        </div>
+      
+        <button class="btn btn-primary mt-3" (click)=" openAddPromotionModal()">Ajouter une prooomotion</button>
+      
+        <button mat-raised-button color="primary" (click)="addPromotion()">Ajouter des promotions</button>
+      
+
+        <h5 class="mt-5">Offres d'emploi</h5>
+        <div class="list-group">
+          <a *ngFor="let jobOffer of partner?.jobOffers" class="list-group-item">
+            <h6 class="mb-1">{{ jobOffer.titre }}</h6>
+            <small>{{ jobOffer.skills }}</small>
+          </a>
+          <div *ngIf="!partner?.jobOffers" class="list-group-item">Aucune offre d'emploi</div>
+        </div>
+        
+        <h5 class="mt-5">Formations</h5>
+        <div class="list-group">
+          <a *ngFor="let formation of partner?.formations" class="list-group-item">
+            <h6 class="mb-1">{{ formation.titre }}</h6>
+            <small>{{ formation.sujet }}</small>
+          </a>
+          <div *ngIf="!partner?.formations" class="list-group-item">Aucune formation</div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal" *ngIf="isAddPromotionModalOpen">
+        <div class="modal-content">
+          <h2>Ajouter une promotion</h2>
+          <div class="form-group">
+            <label for="categ">Catégorie de promotion:</label>
+            <select id="categ" class="form-control" [(ngModel)]="newPromotion.categ">
+              <option value="PROMO_FOOD">Alimentation</option>
+              <option value="PROMO_CLOTHES">Vêtements</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="descrption">Descrption:</label>
+            <textarea id="descrption" class="form-control" [(ngModel)]="newPromotion.descrption"></textarea>
+          </div>
+          <div class="text-center">
+            <button class="btn btn-primary" (click)="addPromotion()">Ajouter</button>
+            <button class="btn btn-secondary ml-2" (click)="closeAddPromotionModal()">Annuler</button>
+          
+    
+    </div>
+  </div>
+  
+      </div>
+    
+

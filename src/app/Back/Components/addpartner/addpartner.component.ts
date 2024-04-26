@@ -14,6 +14,7 @@ export class AddpartnerComponent implements OnInit {
 
   constructor(private service: PartnerService, private router: Router) { }
   data: any
+  //partner : any 
   bankAccounts: BankAccount[] = []; // Liste des comptes bancaires disponibles
   form = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -48,10 +49,6 @@ export class AddpartnerComponent implements OnInit {
   }*/
   submit(){
     this.data = this.form.value;
-
-    // Récupérer l'objet BankAccount complet correspondant à l'rib sélectionné
-    //const selectedBankAccount = this.bankAccounts.find(account => account.rib===this.form.value.bankAccount ); //account.rib === this.form.value.bankAccount);
-    //const selectedBankAccount = this.bankAccounts.find(account => account.rib === +this.form.value.bankAccount);
     const selectedBankAccount = this.bankAccounts.find(account => account.rib === Number(this.form.value.bankAccount));
 
     // Assurez-vous que selectedBankAccount est défini avant de l'ajouter aux données à envoyer
@@ -61,13 +58,11 @@ export class AddpartnerComponent implements OnInit {
 
     console.log(this.data);
 
-    this.service.Addpartner(this.data).subscribe(data => {
-      console.log(data);
+    this.service.Addpartner(this.data).subscribe((partner: any) => {
+      
+      this.router.navigate(['/partner', partner.partnerid]);
     });
-
-    this.router.navigate(['/']);
   }
-
 }
 
 
