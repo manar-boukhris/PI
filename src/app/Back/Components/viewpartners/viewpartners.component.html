@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Partners</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="partner/add">Add Partner</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!--Main Content-->
+    <div class="mt-5">
+        <h1 class="text-center">View Partners</h1>
+        <div class="container">
+            <!--Add User Button-->
+            <div class="my-3">
+                <a href="partner/add"><button type="button" class="btn btn-primary">Add Partner</button></a>
+            </div>
+            <table class="table border" >
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">domain</th>
+                    <th scope="col">nbtransaction</th>
+                    <th scope="col">beneficenet</th>
+                    <th scope="col">chiffredaffaires</th>
+                    <th scope="col">chargesfixes</th>
+                    <th scope="col">compte bancaire</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let partner of partners">
+                    <td>{{partner.partnerid}}</td>
+                    <td>{{partner.name}}</td>
+                    <td>{{partner.domain}}</td>
+                    <td>{{partner.nbtransaction}}</td>
+                    <td>{{partner.beneficenet}}</td>
+                    <td>{{partner.chiffredaffaires}}</td>
+                    <td>{{partner.chargesfixes}}</td>
+                   
+                     <td>
+                     <ng-container *ngIf="partner.bankAccount; else notAffected">
+                          Affecté à : {{ partner.bankAccount.rib}}
+                      </ng-container>
+                      <ng-template #notAffected>
+                          N'est pas affecté
+                      </ng-template>
+                  </td>
+                   
+                    <td>
+                        <div class="d-inline mx-2">
+                            <button class="btn btn-warning" (click)="updatePartner(partner.partnerid)" type="button">Update</button>
+                        </div>
+                        <div class="d-inline">
+                          <button class="btn btn-danger" (click)="deletePartner(partner.partnerid)" type="button">Delete</button>
+                        </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>
+</html>
+
+<router-outlet></router-outlet>

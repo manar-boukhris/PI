@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Partner</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    
+    <!--Main Content-->
+    <div class="my-5">
+      <div class="mx-auto w-25 " style="max-width:100%;">
+        <h2 class="text-center mb-3">Add Partner</h2>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <!--name-->
+          <div class="row">
+            <div class="col-md-12 form-group mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input id="name"  formControlName="name" type="text" name="name" class="form-control" placeholder="Name" required>
+            </div>
+          </div>
+
+          <!--Email-->
+          <div class="row">
+            <div class="col-md-12 form-group mb-3">
+              <label for="domain" class="form-label">Domain</label>
+              <input id="domain" type="domain"  formControlName="domain" name="domain" class="form-control" placeholder="domain" required>
+            </div>
+          </div>
+          
+          <!--PNo-->
+          <div class="row">
+            <div class="col-md-12 form-group mb-3">
+              <label for="beneficenet" class="form-label">beneficenet</label>
+              <input id="beneficenet" type="text" name="beneficenet"  formControlName="beneficenet" class="form-control" placeholder="beneficenet" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-group mb-3">
+              <label for="chiffredaffaires" class="form-label">chiffredaffaires</label>
+              <textarea id="chiffredaffaires" type="text" name="chiffredaffaires"  formControlName="chiffredaffaires" class="form-control" placeholder="chiffredaffaires" rows="3" required></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-group mb-3">
+              <label for="chargesfixes" class="form-label">chargesfixes</label>
+              <textarea id="chargesfixes" type="text" name="chargesfixes"  formControlName="chargesfixes" class="form-control" placeholder="chargesfixes" rows="3" required></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-group mb-3">
+              <label for="bankAccount" class="form-label">Bank Account</label>
+              <select id="bankAccount" formControlName="bankAccount" class="form-control" required>
+                <option *ngFor="let account of bankAccounts" [value]="account.rib">{{ account.rib }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <input [disabled]="!form.valid" class="btn btn-primary w-100" type="submit" value="Submit">
+            </div>
+          </div>
+          <div>    
+          </div>
+        </form>
+      </div>
+    </div>
+</body>
+</html>
