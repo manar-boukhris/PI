@@ -85,6 +85,10 @@
                         <div class="d-inline">
                           <button class="btn btn-danger" (click)="deletePartner(partner.partnerid)" type="button">Delete</button>
                         </div>
+                        <div class="d-inline mx-2">
+                          <button class="btn btn-primary" [routerLink]="['/partner/', partner.partnerid]" type="button">Details</button>
+                      </div>
+                      
                     </td>
                   </tr>
                 </tbody>

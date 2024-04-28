@@ -90,6 +90,10 @@
         <label for="categorie">categorie:</label>
         <textarea id="categorie" class="form-control" [(ngModel)]="newFormation.categorie"></textarea>
       </div>
+      <div class="form-group">
+        <label for="pdfFile">Fichier PDF:</label>
+        <input type="file" formControlName="pdfFile" id="pdfFile" (change)="onFileSelected($event)">
+      </div>
       <div class="text-center">
         <button class="btn btn-primary" (click)="addFormation()">Ajouter</button>
         <button class="btn btn-secondary ml-2" (click)="closeAddFormationModal()">Annuler</button>

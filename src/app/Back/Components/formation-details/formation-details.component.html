@@ -1,0 +1,32 @@
+<div *ngIf="formation">
+    <h2>Détails de la formation</h2>
+    <ul>
+      <li><strong>Sujet:</strong> {{ formation.sujet }}</li>
+      <li><strong>Type:</strong> {{ formation.type }}</li>
+      <li><strong>Titre:</strong> {{ formation.titre }}</li>
+      <li><strong>Catégorie:</strong> {{ formation.categorie }}</li>
+      <li *ngIf="formation.partner"><strong>Partenaire:</strong> {{ formation.partner.name }}</li>
+      <li *ngIf="formation.evaluations && formation.evaluations.length > 0">
+        <strong>Évaluations:</strong>
+        <ul>
+          <li *ngFor="let evaluation of formation.evaluations">{{ evaluation.rating }}</li>
+        </ul>
+      </li>
+      <li *ngIf="formation.users && formation.users.length > 0">
+        <strong>Utilisateurs:</strong>
+        <ul>
+          <li *ngFor="let user of formation.users">{{ user.name }}</li>
+        </ul>
+      </li>
+      <li><strong>Complétée:</strong> {{ formation.completed ? 'Oui' : 'Non' }}</li>
+      <!-- Note: Ajoutez ici la logique pour afficher le fichier PDF -->
+
+      <div *ngIf="pdfContent">
+        <h3>Contenu du PDF</h3>
+        <pdf-viewer [src]="pdfContent" style="display: block;" [render-text]="true" [show-all]="true"></pdf-viewer>
+      </div>
+      
+
+      
+    </ul>
+  </div>

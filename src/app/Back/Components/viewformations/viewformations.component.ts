@@ -21,7 +21,7 @@ export class ViewformationsComponent implements OnInit {
         this.formations = data;
       })
     }
-    // Dans votre composant TypeScript
+    
     generateStarArray(rating: number): any[] {
       return Array(rating).fill(0);
     }
@@ -44,21 +44,7 @@ export class ViewformationsComponent implements OnInit {
       });
     }
 
-  /*
-    deletePartner(partnerid: number){
-      this.service.deletePartner(partnerid).subscribe(data => {
-        this.partners = this.partners?.filter(partner => partner.partnerid !== partnerid);
-      })
-      
-        setTimeout(()=>{
-          window.location.reload();
-        }, 100);
-    
-    }
-  
-    updatePartner(partnerid: number){
-      this.router.navigate(['partner/update', partnerid]);
-    }*/
+ 
   
 
 }

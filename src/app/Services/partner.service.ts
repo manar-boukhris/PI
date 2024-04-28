@@ -50,7 +50,7 @@ export class PartnerService {
   addPromotion(partnerid: number, promotion: Promotion): Observable<Promotion> {
     return this.http.post<Promotion>(`${this.url}promo/${partnerid}`, promotion);
   }
-  addFormation(partnerid: number, formation: Formation): Observable<Formation> {
+  addFormation(partnerid: number ,formation: Formation): Observable<Formation> {
     return this.http.post<Formation>(`${this.url}formation/${partnerid}`, formation);
   }
   addJobOffer(partnerid: number, jobOffer: JobOffer): Observable<JobOffer> {

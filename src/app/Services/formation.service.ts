@@ -24,7 +24,7 @@ export class FormationService {
   getFormationById(formationid: number): Observable<Formation>{
     return this.http.get<Formation>(`${this.url}formation/${formationid}`)
   }
-  completeFormation(id: number, formationid: number): Observable<Blob> {
+  completeFormation(id: number, formationid: number): Observable<Blob> {//c la methode qui genere une certif PDF
     return this.http.post(`${this.url}formation/${id}/${formationid}/complete`, {}, { responseType: 'blob' });
   }
 

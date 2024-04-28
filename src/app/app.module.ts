@@ -10,6 +10,8 @@ import { UpdatepartnerComponent } from './Back/Components/updatepartner/updatepa
 import { PartnerDetailsComponent } from './Back/Components/partner-details/partner-details.component';
 import { CommonModule } from '@angular/common';
 import { ViewformationsComponent } from './Back/Components/viewformations/viewformations.component';
+import { FormationDetailsComponent } from './Back/components/formation-details/formation-details.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { ViewformationsComponent } from './Back/Components/viewformations/viewfo
     AddpartnerComponent,
     UpdatepartnerComponent,
     PartnerDetailsComponent,
-    ViewformationsComponent
+    ViewformationsComponent,
+    FormationDetailsComponent
    
    
   ],
@@ -30,6 +33,7 @@ import { ViewformationsComponent } from './Back/Components/viewformations/viewfo
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
+   PdfViewerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
