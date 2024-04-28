@@ -1,0 +1,31 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          <h2 class="section-title">Formations Disponibles</h2>
+          <p class="section-subtitle">Explorez nos formations et trouvez celle qui correspond le mieux à vos besoins.</p>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let formation of formations">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{ formation.titre }}</h5>
+            <p class="card-text">{{ formation.sujet }}</p>
+            <div *ngIf="formation.evaluations && formation.evaluations.length > 0">
+              <p class="card-text">Ratings:</p>
+              <div *ngFor="let evaluation of formation.evaluations">
+                <p class="stars-container">
+                  <span class="star" *ngFor="let star of generateStarArray(evaluation.rating)"></span>
+                </p>
+              </div>
+              <p class="average-rating">Average Rating: {{ calculateAverageRating(formation.evaluations) }}</p>
+            </div>
+            <button class="btn btn-primary" (click)="joinFormation(formation.formationid)"[routerLink]="['/formation/', formation.formationid]">Participer à cette formation</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

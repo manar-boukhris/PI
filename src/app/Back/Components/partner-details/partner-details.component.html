@@ -32,6 +32,7 @@
           </a>
           <div *ngIf="!partner?.jobOffers" class="list-group-item">Aucune offre d'emploi</div>
         </div>
+        <button class="btn btn-primary mt-3" (click)=" openAddJobOfferModal()">Ajouter un offre d'emploi</button>
         
         <h5 class="mt-5">Formations</h5>
         <div class="list-group">
@@ -41,6 +42,7 @@
           </a>
           <div *ngIf="!partner?.formations" class="list-group-item">Aucune formation</div>
         </div>
+        <button class="btn btn-primary mt-3" (click)=" openAddFormationModal()">Ajouter une formation</button>
       </div>
     </div>
   
@@ -65,7 +67,73 @@
     
     </div>
   </div>
+</div>
+  <div class="modal" *ngIf="isAddFormationModalOpen">
+    <div class="modal-content">
+      <h2>Ajouter une formation</h2>
+      <div class="form-group">
+        <label for="type">type de formation:</label>
+        <select id="type" class="form-control" [(ngModel)]="newFormation.type">
+          <option value="PAYYANT">payante</option>
+          <option value="NON_PAYYANT">free</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sujet">sujet:</label>
+        <textarea id="sujet" class="form-control" [(ngModel)]="newFormation.sujet"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="titre">titre:</label>
+        <textarea id="titre" class="form-control" [(ngModel)]="newFormation.titre"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="categorie">categorie:</label>
+        <textarea id="categorie" class="form-control" [(ngModel)]="newFormation.categorie"></textarea>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary" (click)="addFormation()">Ajouter</button>
+        <button class="btn btn-secondary ml-2" (click)="closeAddFormationModal()">Annuler</button>
+      
+
+</div>
+</div>
+</div>
   
+<div class="modal" *ngIf="isAddJobOfferModalOpen">
+    <div class="modal-content">
+      <h2>Ajouter  jobOffer</h2>
+     
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" class="form-control" [(ngModel)]="newJobOffer.description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="skills">skills:</label>
+        <textarea id="skills" class="form-control" [(ngModel)]="newJobOffer.skills"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="titre">titre:</label>
+        <textarea id="titre" class="form-control" [(ngModel)]="newJobOffer.titre"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="location">location:</label>
+        <textarea id="location" class="form-control" [(ngModel)]="newJobOffer.location"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="experienceRequired">experienceRequired:</label>
+        <textarea id="experienceRequired" class="form-control" [(ngModel)]="newJobOffer.experienceRequired"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="salary">salary:</label>
+        <textarea id="salary" class="form-control" [(ngModel)]="newJobOffer.salary"></textarea>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary" (click)="addJobOffer()">Ajouter</button>
+        <button class="btn btn-secondary ml-2" (click)="closeAddJobOfferModal()">Annuler</button>
+      
+
+</div>
+</div>
       </div>
     
 

@@ -4,12 +4,14 @@ import { ViewpartnersComponent } from './Back/Components/viewpartners/viewpartne
 import { AddpartnerComponent } from './Back/Components/addpartner/addpartner.component';
 import { UpdatepartnerComponent } from './Back/Components/updatepartner/updatepartner.component';
 import { PartnerDetailsComponent } from './Back/Components/partner-details/partner-details.component';
+import { ViewformationsComponent } from './Back/Components/viewformations/viewformations.component';
 const routes: Routes = [
   { path: 'partner', component: ViewpartnersComponent },
   { path: 'partner/add', component: AddpartnerComponent },
  { path: 'partner/update/:partnerid', component: UpdatepartnerComponent },
  {path : 'partner/:partnerid', component: PartnerDetailsComponent},
  //{path : 'promo/:partnerid' , component:PartnerDetailsComponent},
+ {path:'formation',component:ViewformationsComponent},
   {path : '' , redirectTo : 'partner' , pathMatch : 'full'}
 ];
 

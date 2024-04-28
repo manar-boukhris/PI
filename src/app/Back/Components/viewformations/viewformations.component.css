@@ -1,0 +1,47 @@
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  
+  .col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .star {
+    background-image: url('/assets/etoile.png');
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    display: inline-block;
+  }
+  
+  .stars-container {
+    margin-bottom: 5px; /* Ajoute une marge entre chaque ligne d'étoiles */
+    text-align: left; /* Centre les étoiles horizontalement */
+  }
+  
+  .average-rating {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 10px; /* Ajoute un espace au-dessus du rating moyen */
+  }
+  

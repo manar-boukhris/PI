@@ -7,10 +7,10 @@ import { ViewpartnersComponent } from './Back/Components/viewpartners/viewpartne
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddpartnerComponent } from './Back/Components/addpartner/addpartner.component';
 import { UpdatepartnerComponent } from './Back/Components/updatepartner/updatepartner.component';
-
 import { PartnerDetailsComponent } from './Back/Components/partner-details/partner-details.component';
 import { CommonModule } from '@angular/common';
-//import { AddPromotionModalComponent } from './Back/components/add-promotion-modal/add-promotion-modal.component';
+import { ViewformationsComponent } from './Back/Components/viewformations/viewformations.component';
+
 
 @NgModule({
   declarations: [
@@ -18,15 +18,15 @@ import { CommonModule } from '@angular/common';
     ViewpartnersComponent,
     AddpartnerComponent,
     UpdatepartnerComponent,
-    PartnerDetailsComponent
-   // AddPromotionModalComponent
+    PartnerDetailsComponent,
+    ViewformationsComponent
+   
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    //CommonModule
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
